@@ -14,7 +14,8 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
       with:
-       
+
+        source_file: 'app/hello.py'
         destination_repo: 'AllanDza/CompMast_TEST'
         
         user_email: 'allanferns007@gmail.com'
