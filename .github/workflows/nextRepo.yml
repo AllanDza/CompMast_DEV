@@ -1,0 +1,22 @@
+name: Push File
+
+on: push
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
+      with:
+        source_file: '.'
+        destination_repo: 'AllanDza/CompMast_DEV'
+        destination_folder: 'test-dir'
+        user_email: 'allanferns007@gmail.com'
+        user_name: 'AllanDza'
+        commit_message: 'successful push'
