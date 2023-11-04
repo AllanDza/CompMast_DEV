@@ -1,59 +1,59 @@
----
-#################################
-#################################
-## Super Linter GitHub Actions ##
-#################################
-#################################
-name: Lint Code Base
 
-#############################
-# Start the job on all push #
-#############################
-on:
+name: CI
+
+on:  # yamllint disable-line rule:truthy
   push:
-    branches:
-      - master 
   pull_request:
-    branches: [main]
+    branches:
+      - master
 
-###############
-# Set the Job #
-###############
+permissions:
+  contents: read
+
 jobs:
-  build:
-    # Name the Job
-    name: Lint Code Base
-    # Set the agent to run on
+  lint:
+    name: Linters
     runs-on: ubuntu-latest
-
-    ############################################
-    # Grant status permission for MULTI_STATUS #
-    ############################################
-    permissions:
-      contents: read
-      packages: read
-      statuses: write
-
-    ##################
-    # Load all steps #
-    ##################
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
-          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v4
+      - run:
+          pip install flake8 flake8-import-order sphinx rstcheck[sphinx] doc8
+      - run: pip install .
+      - run: flake8 .
+      - run: doc8 $(git ls-files '*.rst')
+      - run: rstcheck --ignore-directives automodule $(git ls-files '*.rst')
+      - run: yamllint --strict $(git ls-files '*.yaml' '*.yml')
+      - run: make -C docs html
+      - name: Check for broken links in documentation
+        run: make -C docs linkcheck
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint Code Base
-        uses: super-linter/super-linter@v5
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - '3.8'
+          - '3.9'
+          - '3.10'
+          - '3.11'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Append GitHub Actions system path
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - run: pip install coverage
+      - run: pip install .
+      # https://github.com/AndreMiras/coveralls-python-action/issues/18
+      - run: echo -e "[run]\nrelative_files = True" > .coveragerc
+      - run: coverage run -m unittest discover
+      - name: Coveralls
+        uses: AllanDza/coveralls-python-action@develop
