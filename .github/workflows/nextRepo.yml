@@ -15,7 +15,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
       with:
 
-        source_file: '.'
+        source_file: 'myproject/.'
         destination_repo: 'AllanDza/CompMast_TEST'
         
 
