@@ -1,25 +1,23 @@
 # CompMast_DEV
-flowchart TD
-    A[WORKFLOW]
-    A-->B[ENABLES USER CONFIGURE PARAMETERS]
+
     
-    B-->C[REDIRECTS THE USER TO 
-    ENTER THE DATA TO TRANSFER]
-    C-->D[STEP 2 SYSTEM THEN 
-     MONITORS THE NETWORK ANALYSIS]
-    D-->E[INVALID FILE FORMAT]
-    E-->F[ASKS THE USER TO ENTER AN 
-    ACCEPTABLE FILE]
-    F-->D
-   C-->G[STEP 3
-   SYSTEM MAKES AN INFORMED 
-   DECISON ON USER'S PREFERENCE]
-   G-->H[SUGGEST AN OPTIMAL COMPRESSION
-    ALGORITHM]
-    H-->I[PROVIDES REASON FOR THE OUTPUT]
-    I-->J[PROVIDES A GRAPHICAL REPRESENTATION]
-    J-->K[ASKS THE USER, IF THEY WANT TO 
-    CHANGE THE OUTCOME]
-    K-->L[REDIRECTS THEM TO RESET THE PARAMETERS]
-    L-->B
-    
+# Data Compression for Backbone Network
+
+A Django-based web application for implementing data compression in a backbone network. This project aims to efficiently compress data, reduce network bandwidth requirements, and optimize network performance in alignment with the specific requirements and constraints of the network environment.
+
+## Installation
+
+### Prerequisites
+
+- Python 3.6+
+- Django 3.0+
+- AWS account with necessary permissions
+- Terraform installed
+
+### Installation Steps
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/your-username/data-compression-app.git
+   cd data-compression-app
