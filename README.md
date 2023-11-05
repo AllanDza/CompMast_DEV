@@ -66,12 +66,18 @@ Security measures to protect sensitive data during compression and transmission.
 
 ## Authors
 Allan Dzouza (eng21ct0002@dsu.edu.in)
+
 Hemal (eng21ct0009@dsu.edu.in)
+
 Jaice Joshep (eng21ct0011@dsu.edu.in)
+
 Shashank Hegde (eng21ct00036@dsu.edu.in)
+
 Swaroop (eng21ct00041@dsu.edu.in)
+
 Swathi S (eng21ct00043@dsu.edu.in)
 
+# Flowchart
 ```mermaid
 flowchart TD
 A[WORKFLOW]
