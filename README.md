@@ -60,9 +60,13 @@ Customize the Django application as needed for your network environment.
 
 ### Features
 Efficient data compression for various file types.
+
 Reduction in network bandwidth requirements.
+
 Optimized network performance.
+
 Security measures to protect sensitive data during compression and transmission.
+
 
 ## Authors
 Allan Dzouza (eng21ct0002@dsu.edu.in)
