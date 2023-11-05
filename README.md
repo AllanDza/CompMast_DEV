@@ -36,8 +36,7 @@ we are developing a tool that will efficiently recommend the data compression al
    pip install -r requirements.txt
 
 ```mermaid
-
-graph TD
+flowchart TD
 A[WORKFLOW]
 A-->B{ENABLES USER
 CONFIGURE PARAMETERS}
