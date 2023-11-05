@@ -35,6 +35,13 @@ we are developing a tool that will efficiently recommend the data compression al
    ```shell
    pip install -r requirements.txt
 
+ Configure AWS access credentials.
+ Set up your Django project settings for production, including database configuration, static 
+ files, and media settings.
+ Create a GitHub Actions workflow for CI/CD deployment.
+
+ 
+
 ```mermaid
 flowchart TD
 A[WORKFLOW]
