@@ -35,12 +35,42 @@ we are developing a tool that will efficiently recommend the data compression al
    ```shell
    pip install -r requirements.txt
 
- Configure AWS access credentials.
- Set up your Django project settings for production, including database configuration, static 
- files, and media settings.
- Create a GitHub Actions workflow for CI/CD deployment.
-
+ -Configure AWS access credentials.
  
+ -Set up your Django project settings for production, including database configuration, static 
+ files, and media settings.
+ 
+ -Create a GitHub Actions workflow for CI/CD deployment.
+
+ ### Usage 
+1. Create a virtual environment and activate it:
+
+   ```shell
+   python manage.py runserver
+
+2. Access the web application at http://localhost:8000.
+
+
+### Getting Started
+Clone the repository and follow the installation steps.
+
+Run the Django development server as mentioned in the "Usage" section.
+
+Customize the Django application as needed for your network environment.
+
+### Features
+Efficient data compression for various file types.
+Reduction in network bandwidth requirements.
+Optimized network performance.
+Security measures to protect sensitive data during compression and transmission.
+
+## Authors
+Allan Dzouza (eng21ct0002@dsu.edu.in)
+Hemal (eng21ct0009@dsu.edu.in)
+Jaice Joshep (eng21ct0011@dsu.edu.in)
+Shashank Hegde (eng21ct00036@dsu.edu.in)
+Swaroop (eng21ct00041@dsu.edu.in)
+Swathi S (eng21ct00043@dsu.edu.in)
 
 ```mermaid
 flowchart TD
