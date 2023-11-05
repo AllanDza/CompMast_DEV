@@ -15,9 +15,10 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
       with:
 
-        source_file: 'app/.'
+        source_file: '.'
         destination_repo: 'AllanDza/CompMast_TEST'
         
+
         user_email: 'allanferns007@gmail.com'
         user_name: 'AllanDza'
         commit_message: 'successful push'
