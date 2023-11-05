@@ -24,12 +24,13 @@ we are developing a tool that will efficiently recommend the data compression al
    git clone https://github.com/your-username/data-compression-app.git
    cd data-compression-app
    
-2.Create a virtual environment and activate it:
- 
-    ```shell
-     python -m venv venv
-     source venv/bin/activate   # On Windows, use venv\Scripts\activate
-     
-3.Install Python dependencies:
+2. Create a virtual environment and activate it:
 
+   ```shell
+   python -m venv venv
+   source venv/bin/activate   # On Windows, use venv\Scripts\activate
 
+3. Install Python dependencies:
+
+   ```shell
+   pip install -r requirements.txt
