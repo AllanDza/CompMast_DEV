@@ -3,7 +3,7 @@ name: SAST Scan
 on:
   push:
     branches:
-      - master # Modify this to match your branch
+      - main # Modify this to match your branch
 
 jobs:
   sast:
