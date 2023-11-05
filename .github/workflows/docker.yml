@@ -20,4 +20,4 @@ jobs:
         with:
           context: dockerFileFolder/
           push: true
-          tags: swathi0/compressmaster:latest
+          tags: allandza/compressmaster:latest
