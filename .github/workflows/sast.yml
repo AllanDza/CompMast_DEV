@@ -8,8 +8,7 @@ on:
 jobs:
   sast:
     runs-on: windows-latest
-    env:
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+ 
 
     steps:
       - name: Checkout Repository
