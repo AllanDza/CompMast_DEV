@@ -3,12 +3,12 @@ name: SAST Scan
 on:
   push:
     branches:
-      - main # Modify this to match your branch
+      - main
 
 jobs:
   sast:
     runs-on: windows-latest
-    env: # Remove the extra indentation here
+    env:
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
