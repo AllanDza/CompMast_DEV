@@ -8,8 +8,7 @@ on:
 jobs:
   sast:
     runs-on: windows-latest
-   
-    env: # Correct the indentation
+    env: # Remove the extra indentation here
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
