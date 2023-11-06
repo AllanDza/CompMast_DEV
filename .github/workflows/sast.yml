@@ -8,7 +8,12 @@ on:
 jobs:
   sast:
     runs-on: windows-latest
- 
+
+    - name: Set Git identity
+      run: |
+        git config --global user.email "allanferns08@gmail.com"
+        git config --global user.name "AllanDza"
+     
 
     steps:
       - name: Checkout Repository
