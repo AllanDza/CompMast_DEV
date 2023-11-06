@@ -13,6 +13,6 @@ RUN pip install -r Requirements.txt
 COPY . /app
 
 
-.
+..
 
 
