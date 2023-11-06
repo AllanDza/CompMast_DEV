@@ -3,23 +3,20 @@ name: SAST Scan
 on:
   push:
     branches:
-      - main # Modify this to match your branch
+      - main
 
 jobs:
-  sast:
-    runs-on: windows-latest
-
+  bandit_scan:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Set Git identity
+        run: |
+          git config --global user.email "allanferns08@gmail.com"
+          git config --global user.name "AllanDza"
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: Install Dependencies
-        run: pip install bandit
-
-      - name: Run Bandit
-        run: bandit -r .
+      - name: Install Bandit
+        run: |
+          pip install bandit
+          bandit -r .
