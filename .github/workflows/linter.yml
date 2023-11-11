@@ -3,7 +3,7 @@ name: Super-Linter
 on:
   push:
     branches:
-      - main # Modify this to match your branch
+      - master # Modify this to match your branch
 
 jobs:
   super-linter:
