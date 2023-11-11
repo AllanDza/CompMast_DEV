@@ -12,7 +12,19 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Run Additional Setup Command
+        run: echo "Running additional setup command"
+
+      - name: Display Directory Contents
+        run: ls -R  # Replace with your actual command
+
       - name: Run Super-Linter
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: true
+
+      - name: Run Additional Cleanup Command
+        run: echo "Running additional cleanup command"
+
+      - name: Display Directory Contents After Linting
+        run: ls -R  # Replace with your actual command
