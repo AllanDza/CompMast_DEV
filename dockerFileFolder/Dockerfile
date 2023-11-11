@@ -11,8 +11,3 @@ COPY ./Requirements.txt /app/Requirements.txt
 RUN pip install -r Requirements.txt
 
 COPY . /app
-
-
-..
-
-
