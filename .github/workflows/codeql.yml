@@ -80,3 +80,23 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
+
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
+      with:
+
+        source_file: 'myproject/.'
+        destination_repo: 'AllanDza/CompMast_TEST'
+        
+
+        user_email: 'allanferns007@gmail.com'
+        user_name: 'AllanDza'
+        commit_message: 'successful push'
