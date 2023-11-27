@@ -82,6 +82,7 @@ jobs:
         category: "/language:${{matrix.language}}"
 
   copy-file:
+    needs: analyze
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
