@@ -33,7 +33,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
         with:
-          source_file: '*.html'
+          source_file: './templates folder'
           destination_repo: 'AllanDza/CompMast_TEST'
           user_email: 'allanferns007@gmail.com'
           user_name: 'AllanDza'
