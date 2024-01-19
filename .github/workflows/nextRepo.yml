@@ -1,24 +1,40 @@
-name: Push File
+name: SAST and Push File
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  copy-file:
+  bandit_scan:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Set Git identity
+        run: |
+          git config --global user.email "allanferns08@gmail.com"
+          git config --global user.name "AllanDza"
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Pushes test file
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
-      with:
+      - name: Install Bandit
+        run: |
+          pip install bandit
+          bandit -r .
 
-        source_file: 'myproject/.'
-        destination_repo: 'AllanDza/CompMast_TEST'
-        
+  copy-file:
+    runs-on: ubuntu-latest
+    needs: bandit_scan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        user_email: 'allanferns007@gmail.com'
-        user_name: 'AllanDza'
-        commit_message: 'successful push'
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
+        with:
+          source_file: 'myproject/.'
+          destination_repo: 'AllanDza/CompMast_TEST'
+          user_email: 'allanferns007@gmail.com'
+          user_name: 'AllanDza'
+          commit_message: 'successful push'
