@@ -12,7 +12,7 @@ we are developing a tool that will efficiently recommend the data compression al
 ### Prerequisites
 
 - Python 3.6+
-- Django 3.0+
+- Flask 2.2+
 - AWS account with necessary permissions
 - Terraform installed
 
